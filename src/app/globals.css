@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* === Aura & Ash design tokens === */
+  --ink: #23131c;          /* near-black aubergine — dark grounds */
+  --ink-soft: #3a2130;     /* lifted ink for cards on dark */
+  --paper: #f6ece2;        /* warm rose-parchment background */
+  --paper-deep: #efe0d2;   /* slightly deeper paper for section bands */
+  --rose: #c08497;         /* dusty rose accent */
+  --rose-deep: #a25f75;    /* pressed rose for hover states */
+  --gold: #a9814a;         /* antique gold — signature accent, used sparingly */
+  --gold-soft: #cbab74;    /* lifted gold for dark grounds */
+  --sage: #8fa07f;         /* secondary accent — skin & spa services */
+  --charcoal: #2b2119;     /* body text on paper */
+  --charcoal-60: rgba(43, 33, 25, 0.62);
+
+  --font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html, body {
+  background: var(--paper);
+  color: var(--charcoal);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Ticket-stub motif: a dashed perforation with punched notches on each side */
+.ticket {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid rgba(43, 33, 25, 0.14);
+}
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: var(--paper-band, var(--paper));
+  border: 1px solid rgba(43, 33, 25, 0.14);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.ticket::before { left: -10px; }
+.ticket::after { right: -10px; }
+.ticket .perforation {
+  border-top: 1.5px dashed rgba(43, 33, 25, 0.28);
+}
+
+.ticket-dark {
+  background: var(--ink-soft);
+  border-color: rgba(246, 236, 226, 0.16);
+}
+.ticket-dark::before,
+.ticket-dark::after {
+  background: var(--ink);
+  border-color: rgba(246, 236, 226, 0.16);
+}
+.ticket-dark .perforation {
+  border-top: 1.5px dashed rgba(246, 236, 226, 0.22);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.bg-noise {
+  background-image: radial-gradient(rgba(43,33,25,0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
