@@ -1,10 +1,10 @@
 import type { Service } from "@/data/services";
 
 const accentByCategory: Record<Service["category"], string> = {
-  Hair: "var(--rose)",
-  Skin: "var(--sage)",
-  "Bridal & Occasion": "var(--gold)",
-  "Finishing Touches": "var(--rose-deep)",
+  Threading: "var(--rose)",
+  Waxing: "var(--sage)",
+  Lashes: "var(--gold)",
+  Facial: "var(--rose-deep)",
 };
 
 export default function ServiceTicket({ service }: { service: Service }) {
