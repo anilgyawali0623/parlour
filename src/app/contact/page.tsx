@@ -4,9 +4,9 @@ import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact & Booking — Aura & Ash",
+  title: "Contact & Booking — Neva Threading & Beauty Salon",
   description:
-    "Book your slot at Aura & Ash: 14 Marlowe Lane, Riverside District. Call, email, or send a note through the booking form.",
+    "Book your slot at Neva Threading & Beauty Salon: 14 Marlowe Lane, Riverside District. Call, email, or send a note through the booking form.",
 };
 
 export default function ContactPage() {

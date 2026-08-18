@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Aura & Ash — A Parlour for Hair, Skin & Occasion Styling",
+  title: "Neva Threading & Beauty Salon",
   description:
-    "An appointment-only parlour in the Riverside District offering hair, skin, bridal, and finishing services. Book your slot at Aura & Ash.",
+    "Book your appointment at Neva Threading & Beauty Salon for premium threading and beauty services.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

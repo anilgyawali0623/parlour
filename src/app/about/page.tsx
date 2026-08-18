@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "About — Aura & Ash",
+  title: "About — Neva Threading & Beauty Salon",
   description:
-    "The story behind Aura & Ash: a six-chair parlour in a converted Riverside townhouse, and the people who run it.",
+    "The story behind Neva Threading & Beauty Salon: a six-chair parlour in a converted Riverside townhouse, and the people who run it.",
 };
 
 const team = [
@@ -31,7 +31,7 @@ export default function AboutPage() {
             A townhouse on Marlowe Lane, six chairs, and a rule against double-booking.
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--charcoal-60)]">
-            Aura &amp; Ash opened in 2014 in a former dressmaker&rsquo;s townhouse,
+            Neva Threading and Beauty &amp;Neva opened in 2025 in a former dressmaker&rsquo;s townhouse,
             after its founder, Priya, spent a decade watching salons stretch
             stylists thin across too many chairs. The fix was structural, not
             aesthetic: cap the chairs, cap the clients per hour, and let the
