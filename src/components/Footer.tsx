@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
-            <span className="font-display text-2xl">Aura &amp; Ash</span>
+            <span className="font-display text-1xl">Neva Threading & Beauty Salon</span>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--paper)]/70">
               An appointment-only parlour for hair, skin, and occasion styling,
               set inside a converted 1920s townhouse.
@@ -60,11 +60,10 @@ export default function Footer() {
 
           <div>
             <p className="eyebrow text-[var(--gold-soft)]">Hours</p>
-            <ul className="mt-4 space-y-2.5 text-sm text-[var(--paper)]/80 font-mono">
-              <li className="flex justify-between gap-4"><span>Tue – Fri</span><span>10 – 7</span></li>
-              <li className="flex justify-between gap-4"><span>Saturday</span><span>9 – 6</span></li>
-              <li className="flex justify-between gap-4"><span>Sunday</span><span>11 – 4</span></li>
-              <li className="flex justify-between gap-4"><span>Monday</span><span>Closed</span></li>
+            <ul className="mt-4  text-sm text-[var(--paper)]/80 font-mono">
+              <li className="flex gap-1 "><span>Monday – Saturday</span><span> 10am – 7pm</span></li>
+              <li className="flex  gap-1"><span>Sunday</span><span>7am – 6pm</span></li>
+
             </ul>
           </div>
 
@@ -73,11 +72,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-[var(--paper)]/80">
               <li className="flex items-start gap-2.5">
                 <MapPin size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-[var(--gold-soft)]" />
-                14 Marlowe Lane, Riverside District
+                601 Harwood Rd Ste 1, Bedford, TX 76021, USA
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={16} strokeWidth={1.75} className="shrink-0 text-[var(--gold-soft)]" />
-                (555) 014-2288
+                +1 (682) 416-3606
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={16} strokeWidth={1.75} className="shrink-0 text-[var(--gold-soft)]" />
@@ -88,7 +87,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-[var(--paper)]/15 pt-6 text-xs text-[var(--paper)]/55 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Aura &amp; Ash Parlour. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Neva Threading & Beauty Salon. All rights reserved.</p>
           <p className="font-mono">Booked by appointment, Tuesday through Sunday.</p>
         </div>
       </div>

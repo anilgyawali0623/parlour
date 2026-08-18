@@ -28,15 +28,15 @@ export default function ContactPage() {
             className="ticket ticket-dark rounded-sm p-6 text-[var(--paper)]"
             style={{ ["--paper-band" as unknown as string]: "var(--ink)" }}
           >
-            <p className="eyebrow text-[var(--gold-soft)]">Studio</p>
+            <p className="eyebrow text-[var(--gold-soft)]">Parlour </p>
             <ul className="perforation mt-4 space-y-4 pt-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={17} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--gold-soft)]" />
-                14 Marlowe Lane, Riverside District
+                601 Harwood Rd Ste 1, Bedford, TX 76021, USA
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={17} strokeWidth={1.5} className="shrink-0 text-[var(--gold-soft)]" />
-                (555) 014-2288
+                +1 (682) 416-3606
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={17} strokeWidth={1.5} className="shrink-0 text-[var(--gold-soft)]" />
@@ -45,18 +45,17 @@ export default function ContactPage() {
               <li className="flex items-start gap-3">
                 <Clock size={17} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--gold-soft)]" />
                 <span>
-                  Tue&ndash;Fri 10&ndash;7 &middot; Sat 9&ndash;6 &middot; Sun 11&ndash;4 &middot; Mon closed
-                </span>
+                  Mon&ndash;Sat 10am-7pm; Sun 11am&ndash;6pm </span>
               </li>
             </ul>
           </div>
 
           <div className="overflow-hidden rounded-sm border border-[var(--charcoal)]/12">
             <iframe
-              title="Aura & Ash location map"
+              title="Neva Threading & Beauty Salon location map"
               className="h-64 w-full grayscale"
               loading="lazy"
-              src="https://www.google.com/maps?q=Riverside+District&output=embed"
+              src="https://www.google.com/maps?q=601+Harwood+Rd+Ste+1,+Bedford,+TX+76021,+USA&output=embed"
             />
           </div>
         </div>

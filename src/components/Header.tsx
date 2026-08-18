@@ -22,10 +22,10 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--ink)] font-display text-sm text-[var(--ink)]">
-            A&A
+          N
           </span>
           <span className="font-display text-lg tracking-tight text-[var(--ink)]">
-            Aura &amp; Ash
+            Neva Threading & Beauty Salon
           </span>
         </Link>
 

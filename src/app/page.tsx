@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, Scissors, Droplet, Gem } from "lucide-react";
+import { Scissors, Droplet, Gem, Eye } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceTicket from "@/components/ServiceTicket";
 import { services } from "@/data/services";
@@ -43,9 +43,7 @@ export default function Home() {
       <section className="bg-[var(--ink)] text-[var(--paper)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 pt-16 sm:pt-24 md:grid-cols-[1.1fr_0.9fr] md:gap-6">
           <div>
-            <p className="eyebrow text-[var(--gold-soft)]">
-              Riverside District &middot; appointment only
-            </p>
+           
             <h1 className="mt-4 font-display text-5xl leading-[1.05] sm:text-6xl">
               Hair, skin, and
               <br />
@@ -54,9 +52,8 @@ export default function Home() {
               held to one chair at a time.
             </h1>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-[var(--paper)]/75">
-              Aura &amp; Ash books a single client per stylist, so your slot is
-              never split with someone else&rsquo;s blow-dry. Set inside a converted
-              1920s townhouse on Marlowe Lane.
+              Neva Threading & Beauty Salon books a single client per stylist, so your slot is
+              never split with someone else&rsquo;s blow-dry. 
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
@@ -69,59 +66,52 @@ export default function Home() {
                 href="/services"
                 className="font-mono text-xs uppercase tracking-wider text-[var(--paper)]/80 underline decoration-[var(--paper)]/30 underline-offset-4 transition hover:text-[var(--paper)]"
               >
-                See the full menu
+                See the full services
               </Link>
             </div>
           </div>
 
           {/* signature ticket card */}
-          <div className="ticket ticket-dark self-start justify-self-start rounded-sm p-6 md:justify-self-end" style={{ ["--paper-band" as string]: "var(--ink)" }}>
-            <div className="flex items-center justify-between">
-              <span className="eyebrow text-[var(--gold-soft)]">Admit one</span>
-              <Sparkles size={16} strokeWidth={1.5} className="text-[var(--gold-soft)]" />
-            </div>
-            <p className="perforation mt-4 pt-4 font-display text-2xl italic text-[var(--paper)]">
-              &ldquo;Your chair, your hour, no waiting room.&rdquo;
-            </p>
-            <dl className="mt-5 grid grid-cols-2 gap-4 font-mono text-xs text-[var(--paper)]/70">
-              <div>
-                <dt className="text-[var(--gold-soft)]">Est.</dt>
-                <dd>2014</dd>
-              </div>
-              <div>
-                <dt className="text-[var(--gold-soft)]">Chairs</dt>
-                <dd>6, never more</dd>
-              </div>
-              <div>
-                <dt className="text-[var(--gold-soft)]">Booking</dt>
-                <dd>Tue&ndash;Sun</dd>
-              </div>
-              <div>
-                <dt className="text-[var(--gold-soft)]">Location</dt>
-                <dd>Riverside Dist.</dd>
-              </div>
-            </dl>
-          </div>
+          {/*  later image */}
         </div>
       </section>
 
       {/* PILLARS */}
       <section className="border-b border-[var(--charcoal)]/10 bg-[var(--paper-deep)]">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 sm:grid-cols-3">
-          {[
-            { icon: Scissors, label: "Hair", body: "Cut, colour, and smoothing built around how your hair actually behaves." },
-            { icon: Droplet, label: "Skin", body: "Facials and treatments read fresh each visit, never a fixed protocol." },
-            { icon: Gem, label: "Occasion", body: "Bridal and event styling, trialled ahead so the day itself holds no surprises." },
-          ].map(({ icon: Icon, label, body }) => (
-            <div key={label} className="flex flex-col items-start gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--gold)] text-[var(--gold)]">
-                <Icon size={17} strokeWidth={1.5} />
-              </span>
-              <h3 className="font-display text-xl text-[var(--ink)]">{label}</h3>
-              <p className="text-sm leading-relaxed text-[var(--charcoal-60)]">{body}</p>
-            </div>
-          ))}
-        </div>
+  {[
+    {
+      icon: Scissors,
+      label: "Threading",
+      body: "Precise brow and facial threading for clean, defined results that complement your features.",
+    },
+    {
+      icon: Droplet,
+      label: "Waxing",
+      body: "Gentle and thorough waxing services for smooth, polished skin with lasting results.",
+    },
+    {
+      icon: Gem,
+      label: "Facial",
+      body: "Refreshing facial treatments tailored to your skin for a healthy, radiant glow.",
+    },
+    {
+      icon: Eye,
+      label: "Lashes",
+      body: "Beautiful lash treatments designed to enhance your eyes and create an effortless finish.",
+    },
+  ].map(({ icon: Icon, label, body }) => (
+    <div key={label} className="flex flex-col items-start gap-3">
+      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--gold)] text-[var(--gold)]">
+        <Icon size={17} strokeWidth={1.5} />
+      </span>
+      <h3 className="font-display text-xl text-[var(--ink)]">{label}</h3>
+      <p className="text-sm leading-relaxed text-[var(--charcoal-60)]">
+        {body}
+      </p>
+    </div>
+  ))}
+</div>
       </section>
 
       {/* FEATURED SERVICES */}

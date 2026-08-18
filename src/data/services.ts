@@ -1,7 +1,7 @@
 export type Service = {
   slug: string;
   name: string;
-  category: "Hair" | "Skin" | "Bridal & Occasion" | "Finishing Touches";
+  category: "Threading" | "Waxing" | "Lashes" | "Facial";
   price: string;
   duration: string;
   description: string;
@@ -9,173 +9,395 @@ export type Service = {
 };
 
 export const services: Service[] = [
-  // Hair
+  // Threading
   {
-    slug: "signature-cut-finish",
-    name: "Signature Cut & Finish",
-    category: "Hair",
-    price: "$65",
-    duration: "45 min",
+    slug: "eyebrow-threading",
+    name: "Eyebrow Threading",
+    category: "Threading",
+    price: "$8",
+    duration: "",
     description:
-      "A precision cut mapped to your face shape and hair pattern, finished with a blowout that holds.",
-    keywords: ["haircut", "trim", "blowdry", "blowout"],
+      "Precise eyebrow threading to shape and define your brows for a clean, polished look.",
+    keywords: ["threading", "eyebrow", "brows"],
   },
   {
-    slug: "balayage-color-melt",
-    name: "Balayage & Colour Melt",
-    category: "Hair",
-    price: "$180",
-    duration: "2.5 hrs",
+    slug: "upper-lip-threading",
+    name: "Upper Lip Threading",
+    category: "Threading",
+    price: "$6",
+    duration: "",
     description:
-      "Hand-painted dimension that grows out softly, tailored to your natural base tone.",
-    keywords: ["color", "colour", "highlights", "balayage", "dye"],
+      "Gentle threading to remove unwanted hair from the upper lip and leave the skin smooth.",
+    keywords: ["threading", "upper lip", "facial hair"],
   },
   {
-    slug: "gloss-toning",
-    name: "Gloss & Toning Treatment",
-    category: "Hair",
-    price: "$55",
-    duration: "30 min",
+    slug: "lower-lip-threading",
+    name: "Lower Lip Threading",
+    category: "Threading",
+    price: "$3",
+    duration: "",
     description:
-      "A clear or tinted gloss that seals the cuticle, cutting brass and adding mirror-shine.",
-    keywords: ["shine", "tone", "gloss", "color refresh"],
+      "Quick and precise threading for unwanted hair around the lower lip.",
+    keywords: ["threading", "lower lip", "facial hair"],
   },
   {
-    slug: "keratin-smoothing",
-    name: "Keratin Smoothing",
-    category: "Hair",
-    price: "$220",
-    duration: "2 hrs",
+    slug: "chin-threading",
+    name: "Chin Threading",
+    category: "Threading",
+    price: "$6+",
+    duration: "",
     description:
-      "A frizz-taming treatment that softens texture for up to twelve weeks without flattening it.",
-    keywords: ["keratin", "smoothing", "frizz", "straightening"],
+      "Precise chin threading for a smooth, clean facial finish.",
+    keywords: ["threading", "chin", "facial hair"],
+  },
+  {
+    slug: "neck-threading",
+    name: "Neck Threading",
+    category: "Threading",
+    price: "$6",
+    duration: "",
+    description:
+      "Threading service designed to remove unwanted hair from the neck area.",
+    keywords: ["threading", "neck", "hair removal"],
+  },
+  {
+    slug: "forehead-threading",
+    name: "Forehead Threading",
+    category: "Threading",
+    price: "$6",
+    duration: "",
+    description:
+      "Gentle forehead threading for a smooth and even facial appearance.",
+    keywords: ["threading", "forehead", "facial hair"],
+  },
+  {
+    slug: "sides-threading",
+    name: "Sides Threading",
+    category: "Threading",
+    price: "$15",
+    duration: "",
+    description:
+      "Threading for the sides of the face to create a smooth and refined look.",
+    keywords: ["threading", "sides", "face", "hair removal"],
+  },
+  {
+    slug: "sideburns-cheeks-threading",
+    name: "Sideburns / Cheeks Threading",
+    category: "Threading",
+    price: "$8",
+    duration: "",
+    description:
+      "Facial threading for the sideburn and cheek areas for a clean, smooth finish.",
+    keywords: ["threading", "sideburns", "cheeks", "face"],
+  },
+  {
+    slug: "full-face-threading",
+    name: "Full Face Threading",
+    category: "Threading",
+    price: "$30",
+    duration: "",
+    description:
+      "Complete facial threading service for a smooth, polished appearance.",
+    keywords: ["threading", "full face", "facial hair removal"],
+  },
+  {
+    slug: "full-face-threading-collagen-mask",
+    name: "Full Face Threading with Collagen Mask",
+    category: "Threading",
+    price: "$40",
+    duration: "",
+    description:
+      "Full face threading followed by a collagen mask to leave the skin feeling refreshed and smooth.",
+    keywords: ["threading", "full face", "collagen mask", "facial"],
   },
 
-  // Skin
+  // Waxing
   {
-    slug: "signature-facial",
-    name: "Signature Facial",
-    category: "Skin",
-    price: "$95",
-    duration: "60 min",
+    slug: "eyebrow-waxing",
+    name: "Eyebrow Waxing",
+    category: "Waxing",
+    price: "$10",
+    duration: "",
     description:
-      "A double-cleanse, gentle exfoliation, and mask suited to your skin's mood that week.",
-    keywords: ["facial", "skincare", "cleanse", "glow"],
+      "Professional eyebrow waxing to shape and define your brows with a clean finish.",
+    keywords: ["waxing", "eyebrow", "brows"],
   },
   {
-    slug: "dermaplaning",
-    name: "Dermaplaning",
-    category: "Skin",
-    price: "$75",
-    duration: "40 min",
+    slug: "full-face-waxing",
+    name: "Full Face Waxing",
+    category: "Waxing",
+    price: "$35",
+    duration: "",
     description:
-      "Manual exfoliation that lifts dulling buildup and peach fuzz for a smoother makeup finish.",
-    keywords: ["exfoliation", "peach fuzz", "smooth skin"],
+      "Full facial waxing to remove unwanted hair and leave the skin feeling smooth.",
+    keywords: ["waxing", "full face", "hair removal"],
   },
   {
-    slug: "led-light-therapy",
-    name: "LED Light Therapy",
-    category: "Skin",
+    slug: "nose-wax",
+    name: "Nose Wax",
+    category: "Waxing",
+    price: "$15",
+    duration: "",
+    description:
+      "Quick and professional nose waxing for unwanted visible hair.",
+    keywords: ["waxing", "nose", "hair removal"],
+  },
+  {
+    slug: "full-arms-waxing",
+    name: "Full Arms Waxing",
+    category: "Waxing",
+    price: "$30",
+    duration: "",
+    description:
+      "Full arm waxing for smooth, hair-free skin from shoulders to wrists.",
+    keywords: ["waxing", "arms", "full arms", "hair removal"],
+  },
+  {
+    slug: "full-legs-waxing",
+    name: "Full Legs Waxing",
+    category: "Waxing",
+    price: "$40",
+    duration: "",
+    description:
+      "Full leg waxing for smooth, clean-looking skin throughout the legs.",
+    keywords: ["waxing", "legs", "full legs", "hair removal"],
+  },
+  {
+    slug: "half-legs-waxing",
+    name: "Half Legs Waxing",
+    category: "Waxing",
+    price: "$30",
+    duration: "",
+    description:
+      "Half-leg waxing focused on removing unwanted hair for smooth skin.",
+    keywords: ["waxing", "half legs", "legs"],
+  },
+  {
+    slug: "half-arm-waxing",
+    name: "Half Arm Waxing",
+    category: "Waxing",
+    price: "$20",
+    duration: "",
+    description:
+      "Half-arm waxing for smooth and polished skin.",
+    keywords: ["waxing", "half arm", "arms"],
+  },
+  {
+    slug: "back-waxing",
+    name: "Back Waxing",
+    category: "Waxing",
+    price: "$30",
+    duration: "",
+    description:
+      "Professional back waxing to remove unwanted hair and leave the skin smooth.",
+    keywords: ["waxing", "back", "body waxing"],
+  },
+  {
+    slug: "bikini-wax",
+    name: "Bikini Wax",
+    category: "Waxing",
+    price: "$25+",
+    duration: "",
+    description:
+      "Bikini waxing for a clean and smooth finish around the bikini area.",
+    keywords: ["waxing", "bikini", "bikini wax"],
+  },
+  {
+    slug: "brazilian-wax",
+    name: "Brazilian Wax",
+    category: "Waxing",
+    price: "$40+",
+    duration: "",
+    description:
+      "Professional Brazilian waxing service for a smooth and clean finish.",
+    keywords: ["waxing", "brazilian", "body waxing"],
+  },
+  {
+    slug: "belly-wax",
+    name: "Belly Wax",
+    category: "Waxing",
+    price: "$20",
+    duration: "",
+    description:
+      "Belly waxing to remove unwanted hair and leave the area smooth.",
+    keywords: ["waxing", "belly", "stomach", "body waxing"],
+  },
+  {
+    slug: "underarms-wax",
+    name: "Underarms Wax",
+    category: "Waxing",
+    price: "$12",
+    duration: "",
+    description:
+      "Underarm waxing for smooth, clean-looking skin and effective hair removal.",
+    keywords: ["waxing", "underarms", "armpits"],
+  },
+  {
+    slug: "ear-wax",
+    name: "Ear Wax",
+    category: "Waxing",
+    price: "$15",
+    duration: "",
+    description:
+      "Professional ear waxing for removing unwanted visible hair around the ears.",
+    keywords: ["waxing", "ear", "hair removal"],
+  },
+
+  // Lashes
+  {
+    slug: "natural-flare-lashes",
+    name: "Natural Flare Lashes",
+    category: "Lashes",
+    price: "$40",
+    duration: "",
+    description:
+      "Natural flare lashes that add subtle volume and definition while maintaining a soft appearance.",
+    keywords: ["lashes", "eyelashes", "natural lashes", "flare"],
+  },
+  {
+    slug: "volume-full-flare-lashes",
+    name: "Volume Full Flare Lashes",
+    category: "Lashes",
+    price: "$50",
+    duration: "",
+    description:
+      "Fuller flare lashes designed to create a more dramatic and voluminous eye look.",
+    keywords: ["lashes", "volume lashes", "full flare", "eyelashes"],
+  },
+  {
+    slug: "lash-refill",
+    name: "Lash Refill",
+    category: "Lashes",
+    price: "$15+",
+    duration: "",
+    description:
+      "Lash refill service to refresh and maintain your existing lash look.",
+    keywords: ["lashes", "lash refill", "eyelashes"],
+  },
+  {
+    slug: "lash-tint",
+    name: "Lash Tint",
+    category: "Lashes",
+    price: "$20",
+    duration: "",
+    description:
+      "Lash tinting that enhances the natural appearance of your lashes with deeper definition.",
+    keywords: ["lashes", "lash tint", "eyelashes", "tint"],
+  },
+  {
+    slug: "brow-tint",
+    name: "Brow Tint",
+    category: "Lashes",
+    price: "$20",
+    duration: "",
+    description:
+      "Brow tinting to add definition and enhance the natural appearance of your eyebrows.",
+    keywords: ["brows", "eyebrows", "brow tint", "tint"],
+  },
+  {
+    slug: "lash-lift",
+    name: "Lash Lift",
+    category: "Lashes",
+    price: "$50",
+    duration: "",
+    description:
+      "A lash lift that curls and opens up the appearance of your eyes without extensions.",
+    keywords: ["lashes", "lash lift", "eyelashes", "curl"],
+  },
+  {
+    slug: "lash-lift-with-tint",
+    name: "Lash Lift with Tint",
+    category: "Lashes",
     price: "$60",
-    duration: "30 min",
+    duration: "",
     description:
-      "Red and amber light to calm inflammation and support collagen, layered onto any facial.",
-    keywords: ["led", "light therapy", "collagen", "acne"],
+      "A lash lift combined with tinting for beautifully curled and defined natural lashes.",
+    keywords: ["lashes", "lash lift", "lash tint", "eyelashes"],
   },
   {
-    slug: "brow-lamination-tint",
-    name: "Brow Lamination & Tint",
-    category: "Skin",
-    price: "$45",
-    duration: "30 min",
+    slug: "brow-lamination",
+    name: "Brow Lamination",
+    category: "Lashes",
+    price: "$50",
+    duration: "",
     description:
-      "Brows brushed into a fuller, uniform shape and tinted to match, lasting four to six weeks.",
+      "Brow lamination that creates a fuller, smoother and more defined brow appearance.",
+    keywords: ["brows", "eyebrows", "brow lamination"],
+  },
+  {
+    slug: "brow-lamination-with-tint",
+    name: "Brow Lamination with Tint",
+    category: "Lashes",
+    price: "$60",
+    duration: "",
+    description:
+      "Brow lamination combined with tinting for fuller-looking and beautifully defined brows.",
     keywords: ["brows", "eyebrows", "lamination", "tint"],
   },
 
-  // Bridal & Occasion
+  // Facial
   {
-    slug: "bridal-trial",
-    name: "Bridal Trial",
-    category: "Bridal & Occasion",
-    price: "$150",
-    duration: "90 min",
+    slug: "cleansing-facial",
+    name: "Cleansing Facial",
+    category: "Facial",
+    price: "$35",
+    duration: "",
     description:
-      "A full run-through of hair and makeup, photographed, before the day itself.",
-    keywords: ["bridal", "wedding", "trial", "makeup"],
+      "A cleansing facial designed to refresh the skin and leave it feeling clean and revitalized.",
+    keywords: ["facial", "cleansing", "skincare", "clean skin"],
   },
   {
-    slug: "bridal-day-of-styling",
-    name: "Bridal Day-Of Styling",
-    category: "Bridal & Occasion",
-    price: "$350",
-    duration: "Half day",
+    slug: "fruit-facial",
+    name: "Fruit Facial",
+    category: "Facial",
+    price: "$45",
+    duration: "",
     description:
-      "On-site hair and makeup for the bride, timed against your getting-ready schedule.",
-    keywords: ["bridal", "wedding day", "on-site", "makeup", "hair"],
+      "A refreshing fruit facial designed to nourish the skin and enhance its natural glow.",
+    keywords: ["facial", "fruit facial", "glow", "skincare"],
   },
   {
-    slug: "occasion-updo",
-    name: "Occasion Updo",
-    category: "Bridal & Occasion",
-    price: "$85",
-    duration: "45 min",
-    description:
-      "A structured or undone updo built to last a full evening of dancing.",
-    keywords: ["updo", "formal", "event", "party hair"],
-  },
-  {
-    slug: "airbrush-makeup",
-    name: "Airbrush Makeup",
-    category: "Bridal & Occasion",
-    price: "$120",
-    duration: "60 min",
-    description:
-      "A lightweight, buildable base applied by airbrush for a photograph-ready finish.",
-    keywords: ["makeup", "airbrush", "foundation", "event makeup"],
-  },
-
-  // Finishing Touches
-  {
-    slug: "gel-manicure",
-    name: "Gel Manicure",
-    category: "Finishing Touches",
+    slug: "24-carat-gold-facial",
+    name: "24 Carat Gold Facial",
+    category: "Facial",
     price: "$50",
-    duration: "45 min",
+    duration: "",
     description:
-      "Shape, cuticle care, and a chip-resistant gel finish in a colour of your choice.",
-    keywords: ["nails", "manicure", "gel"],
+      "A luxurious 24 carat gold facial treatment designed to refresh and brighten the appearance of the skin.",
+    keywords: ["facial", "gold facial", "24 carat gold", "skincare"],
   },
   {
-    slug: "spa-pedicure",
-    name: "Spa Pedicure",
-    category: "Finishing Touches",
-    price: "$65",
-    duration: "50 min",
+    slug: "diamond-facial",
+    name: "Diamond Facial",
+    category: "Facial",
+    price: "$55",
+    duration: "",
     description:
-      "A warm soak, callus treatment, and extended massage, finished with polish.",
-    keywords: ["nails", "pedicure", "feet", "massage"],
+      "A premium diamond facial treatment designed to refresh, smooth and brighten the skin.",
+    keywords: ["facial", "diamond facial", "skincare", "glow"],
   },
   {
-    slug: "lash-lift-tint",
-    name: "Lash Lift & Tint",
-    category: "Finishing Touches",
-    price: "$70",
-    duration: "45 min",
+    slug: "collagen-facial",
+    name: "Collagen Facial",
+    category: "Facial",
+    price: "$50",
+    duration: "",
     description:
-      "A curl lifted from the root and tinted darker, for definition without extensions.",
-    keywords: ["lashes", "eyelashes", "lift", "tint"],
+      "A collagen-focused facial designed to leave the skin feeling hydrated, refreshed and radiant.",
+    keywords: ["facial", "collagen", "skincare", "hydration"],
   },
   {
-    slug: "scalp-massage-addon",
-    name: "Scalp Massage Add-on",
-    category: "Finishing Touches",
-    price: "$20",
-    duration: "15 min",
+    slug: "microdermabrasion",
+    name: "Microdermabrasion",
+    category: "Facial",
+    price: "$75",
+    duration: "",
     description:
-      "Fifteen unhurried minutes added to any service, worked with warmed oil.",
-    keywords: ["scalp", "massage", "relax", "add-on"],
+      "A professional exfoliating treatment that helps improve the appearance and smoothness of the skin.",
+    keywords: ["facial", "microdermabrasion", "exfoliation", "skincare"],
   },
 ];
 
-export const categories = Array.from(new Set(services.map((s) => s.category)));
+export const categories = Array.from(
+  new Set(services.map((service) => service.category))
+);
