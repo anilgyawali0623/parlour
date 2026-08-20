@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <span className="font-display text-1xl">Neva Threading & Beauty Salon</span>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--paper)]/70">
-              An appointment-only parlour for hair, skin, and occasion styling,
+              An appointment-only salon for hair, skin, and occasion styling,
               set inside a converted 1920s townhouse.
             </p>
             <div className="mt-5 flex gap-3">
@@ -80,7 +80,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={16} strokeWidth={1.75} className="shrink-0 text-[var(--gold-soft)]" />
-                hello@auraandash.studio
+                nevathreading@gmail.com
               </li>
             </ul>
           </div>

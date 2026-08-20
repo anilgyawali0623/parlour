@@ -40,7 +40,7 @@ export default function ContactPage() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={17} strokeWidth={1.5} className="shrink-0 text-[var(--gold-soft)]" />
-                hello@auraandash.studio
+                nevathreading@gmail.com
               </li>
               <li className="flex items-start gap-3">
                 <Clock size={17} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--gold-soft)]" />

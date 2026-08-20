@@ -9,9 +9,6 @@ export const metadata: Metadata = {
 
 const team = [
   { name: "Priya Anand", role: "Founder & Colourist", note: "Trained in London, twelve years behind the chair." },
-  { name: "Noor El-Amin", role: "Lead Stylist", note: "Specialises in texture-first cutting." },
-  { name: "Camila Reyes", role: "Skin Therapist", note: "Esthetician, formerly of a dermatology clinic." },
-  { name: "Jonas Weber", role: "Bridal & Occasion", note: "Ten seasons of wedding season, no regrets." },
 ];
 
 const values = [
@@ -31,7 +28,7 @@ export default function AboutPage() {
             A townhouse on Marlowe Lane, six chairs, and a rule against double-booking.
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--charcoal-60)]">
-            Neva Threading and Beauty &amp;Neva opened in 2025 in a former dressmaker&rsquo;s townhouse,
+            Neva Threading and Beauty.Neva opened in 2026 in a former dressmaker&rsquo;s townhouse,
             after its founder, Priya, spent a decade watching salons stretch
             stylists thin across too many chairs. The fix was structural, not
             aesthetic: cap the chairs, cap the clients per hour, and let the
