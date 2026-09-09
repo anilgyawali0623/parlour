@@ -39,9 +39,9 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
- console.log("Submitting form with values:", values);
+    console.log("Submitting form with values:", values);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://parlour-nine-sigma.vercel.app/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
