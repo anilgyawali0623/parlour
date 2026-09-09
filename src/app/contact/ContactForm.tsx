@@ -35,12 +35,27 @@ export default function ContactForm() {
     return Object.keys(next).length === 0;
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
-    // Simulated submit — wire this up to your booking backend or email service.
-    setTimeout(() => setStatus("success"), 700);
+ console.log("Submitting form with values:", values);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      console.log("Response from /api/contact:", res);
+
+      if (!res.ok) throw new Error("Request failed");
+
+      setStatus("success");
+    } catch (err) {
+      console.error(err);
+      setStatus("idle");
+      setErrors({ form: "Something went wrong sending your request. Please try again or call us directly." });
+    }
   }
 
   if (status === "success") {
@@ -148,7 +163,12 @@ export default function ContactForm() {
         className="w-full rounded-full bg-[var(--ink)] px-6 py-3.5 font-mono text-xs uppercase tracking-wider text-[var(--paper)] transition hover:bg-[var(--rose-deep)] disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Sending…" : "Request appointment"}
+        {errors.form && (
+          <p className="text-sm text-[var(--rose-deep)]">{errors.form}</p>
+        )}
+
       </button>
+
     </form>
   );
 }
@@ -172,7 +192,6 @@ function Field({
 }
 
 function inputClass(hasError: boolean) {
-  return `w-full rounded-sm border bg-[var(--paper)] px-3.5 py-2.5 text-sm text-[var(--charcoal)] outline-none transition placeholder:text-[var(--charcoal-60)]/70 focus:border-[var(--gold)] ${
-    hasError ? "border-[var(--rose-deep)]" : "border-[var(--charcoal)]/20"
-  }`;
+  return `w-full rounded-sm border bg-[var(--paper)] px-3.5 py-2.5 text-sm text-[var(--charcoal)] outline-none transition placeholder:text-[var(--charcoal-60)]/70 focus:border-[var(--gold)] ${hasError ? "border-[var(--rose-deep)]" : "border-[var(--charcoal)]/20"
+    }`;
 }

@@ -6,7 +6,7 @@ import SectionHeading from "@/components/SectionHeading";
 import ServiceTicket from "@/components/ServiceTicket";
 import SearchBox from "@/components/SearchBox";
 import { services, categories, type Service } from "@/data/services";
-
+import CategoryShowcase from "@/components/CategoryShowcase";
 export default function ServicesExplorer() {
   const searchParams = useSearchParams();
   const urlQuery = searchParams.get("q") ?? "";
@@ -59,20 +59,8 @@ export default function ServicesExplorer() {
             <SearchBox variant="inline" />
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            {(["All", ...categories] as const).map((c) => (
-              <button
-                key={c}
-                onClick={() => setActiveCategory(c)}
-                className={`rounded-full border px-4 py-1.5 font-mono text-xs uppercase tracking-wider transition ${
-                  activeCategory === c
-                    ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
-                    : "border-[var(--charcoal)]/20 text-[var(--charcoal-60)] hover:border-[var(--ink)]"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
+                   <div className="mt-8">
+            <CategoryShowcase active={activeCategory} onSelect={setActiveCategory} />
           </div>
         </div>
       </section>
