@@ -25,14 +25,12 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="eyebrow text-[var(--gold)]">Our story</p>
           <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight sm:text-5xl text-[var(--ink)]">
-            A townhouse on Marlowe Lane, six chairs, and a rule against double-booking.
+            A beauty salon on Bedford TX, where every visit is a moment for yourself.
+
+           
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--charcoal-60)]">
-            Neva Threading and Beauty.Neva opened in 2026 in a former dressmaker&rsquo;s townhouse,
-            after its founder, Priya, spent a decade watching salons stretch
-            stylists thin across too many chairs. The fix was structural, not
-            aesthetic: cap the chairs, cap the clients per hour, and let the
-            room stay quiet enough to hear the water running.
+            Neva Threading & Beauty Salon opened in 2026 in bedFord,TX. After its founder spent a decade of experiencing in providing skin care to other clients. We value our customers & make sure customers get the best service according to their needs.
           </p>
         </div>
       </section>

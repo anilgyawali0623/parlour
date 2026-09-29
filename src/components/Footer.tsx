@@ -27,8 +27,7 @@ export default function Footer() {
           <div>
             <span className="font-display text-1xl">Neva Threading & Beauty Salon</span>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--paper)]/70">
-              An appointment-only salon for hair, skin, and occasion styling,
-              set inside a converted 1920s townhouse.
+               salon for skin, and occasion styling.
             </p>
             <div className="mt-5 flex gap-3">
               <a
@@ -62,7 +61,7 @@ export default function Footer() {
             <p className="eyebrow text-[var(--gold-soft)]">Hours</p>
             <ul className="mt-4  text-sm text-[var(--paper)]/80 font-mono">
               <li className="flex gap-1 "><span>Monday – Saturday</span><span> 10am – 7pm</span></li>
-              <li className="flex  gap-1"><span>Sunday</span><span>7am – 6pm</span></li>
+              <li className="flex  gap-1"><span>Sunday</span><span>11am – 6pm</span></li>
 
             </ul>
           </div>
@@ -86,9 +85,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-[var(--paper)]/15 pt-6 text-xs text-[var(--paper)]/55 sm:flex-row sm:items-center">
+        <div className="mt-14 flex flex-col items-center justify-center gap-4 border-t border-[var(--paper)]/15 pt-6 text-xs text-[var(--paper)]/55 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Neva Threading & Beauty Salon. All rights reserved.</p>
-          <p className="font-mono">Booked by appointment, Tuesday through Sunday.</p>
+          
         </div>
       </div>
     </footer>

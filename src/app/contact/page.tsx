@@ -16,8 +16,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-6xl px-6 py-16">
           <SectionHeading eyebrow="Get in touch" title="Book your slot" />
           <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-[var(--charcoal-60)]">
-            Send a note and we&rsquo;ll confirm a time within one business day,
-            or call the studio directly during open hours.
+           Schedule online or call directly on normal business hours for appointments.
           </p>
         </div>
       </section>

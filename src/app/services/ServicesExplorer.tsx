@@ -56,7 +56,7 @@ export default function ServicesExplorer() {
           </p>
 
           <div className="mt-8 max-w-md">
-            <SearchBox variant="inline" />
+            <SearchBox variant="inline" onSearch={setQuery} />
           </div>
 
                    <div className="mt-8">

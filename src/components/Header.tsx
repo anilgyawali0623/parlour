@@ -16,6 +16,7 @@ const links = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [query, setQuery] = useState("");
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--charcoal)]/10 bg-[var(--paper)]/95 backdrop-blur">
@@ -68,7 +69,7 @@ export default function Header() {
       {menuOpen && (
         <div className="border-t border-[var(--charcoal)]/10 bg-[var(--paper)] px-6 py-5 md:hidden">
           <div className="mb-5">
-            <SearchBox variant="inline" />
+            <SearchBox variant="inline" onSearch={(query) => setQuery(query)} />
           </div>
           <nav className="flex flex-col gap-4">
             {links.map((l) => (

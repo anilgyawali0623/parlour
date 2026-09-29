@@ -8,8 +8,10 @@ import { services } from "@/data/services";
 
 export default function SearchBox({
   variant = "header",
+  onSearch,
 }: {
   variant?: "header" | "inline";
+  onSearch?: (query: string) => void;
 }) {
   const [open, setOpen] = useState(variant === "inline");
   const [query, setQuery] = useState("");
@@ -29,7 +31,8 @@ export default function SearchBox({
       )
       .slice(0, 6);
   }, [query]);
-
+console.log("results", results);
+console.log("query", query);
   useEffect(() => {
     if (open && variant === "header") inputRef.current?.focus();
   }, [open, variant]);
@@ -67,7 +70,11 @@ export default function SearchBox({
           ref={inputRef}
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+  const value = e.target.value;
+  setQuery(value);
+  onSearch?.(value);
+}}
           placeholder={
             variant === "inline"
               ? "Search cut, colour, facial, bridal…"

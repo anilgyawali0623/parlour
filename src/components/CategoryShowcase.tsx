@@ -18,7 +18,13 @@ export default function CategoryShowcase({
         return (
           <button
             key={c}
-            onClick={() => onSelect(isActive ? "All" : c)}
+            onClick={() => {
+    onSelect(isActive ? "All" : c);
+    window.scrollBy({
+      top: 520,
+      behavior: "smooth",
+    });
+  }}
             className={`group relative aspect-[4/5] overflow-hidden rounded-sm transition ${
               isActive ? "ring-2 ring-[var(--ink)] ring-offset-2 ring-offset-[var(--paper-deep)]" : ""
             }`}

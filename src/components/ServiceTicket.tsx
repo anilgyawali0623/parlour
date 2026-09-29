@@ -5,6 +5,7 @@ const accentByCategory: Record<Service["category"], string> = {
   Waxing: "var(--sage)",
   Lashes: "var(--gold)",
   Facial: "var(--rose-deep)",
+  Combo: "var(--sage-deep)",
 };
 
 export default function ServiceTicket({ service }: { service: Service }) {

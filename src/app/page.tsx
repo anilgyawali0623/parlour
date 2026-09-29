@@ -41,19 +41,18 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="bg-[var(--ink)] text-[var(--paper)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 pt-16 sm:pt-24 md:grid-cols-[1.1fr_0.9fr] md:gap-6">
+        <div className="mx-auto grid max-w-6xl gap-5 px-6 pb-20 pt-10 sm:pt-24 md:grid-cols-[1.1fr_0.9fr] md:gap-6">
           <div>
            
-            <h1 className="mt-4 font-display text-5xl leading-[1.05] sm:text-6xl">
-              Hair, skin, and
+            <h1 className="mt-1 font-display text-5xl leading-[1.05] sm:text-6xl">
+              Best Threading & Beauty Salon in beford,TX <br />
               <br />
-              <span className="italic text-[var(--rose)]">occasion styling,</span>
-              <br />
-              held to one chair at a time.
+              
             </h1>
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-[var(--paper)]/75">
-              Neva Threading & Beauty Salon books a single client per stylist, so your slot is
-              never split with someone else&rsquo;s blow-dry. 
+            <p className=" max-w-md text-[15px] leading-relaxed text-[var(--paper)]/75">
+             Welcome to Neva Threading & Beauty Salon, your beauty salon in bedFord,TX. With over 15 years of expertize, We specialize in eyebrow Thread & also offer waxing, facials, eyelashes, lash lift & other skin care.
+             <br />
+             We take Walkins & Appointments.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link

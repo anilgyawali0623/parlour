@@ -1,7 +1,7 @@
 export type Service = {
   slug: string;
   name: string;
-  category: "Threading" | "Waxing" | "Lashes" | "Facial";
+  category: "Threading" | "Waxing" | "Lashes" | "Facial" | "Combo";
   price: string;
   duration: string;
   description: string;
@@ -19,6 +19,16 @@ export const services: Service[] = [
     description:
       "Precise eyebrow threading to shape and define your brows for a clean, polished look.",
     keywords: ["threading", "eyebrow", "brows"],
+  },
+  {
+    slug: "mens-eyebrow-threading",
+    name: "Mens Eyebrow Threading",
+    category: "Threading",
+    price: "$8",
+    duration: "",
+    description:
+      "Professional eyebrow threading for a clean, defined and well-groomed look.",
+    keywords: ["threading", "mens eyebrow", "eyebrow", "brows"],
   },
   {
     slug: "upper-lip-threading",
@@ -254,6 +264,16 @@ export const services: Service[] = [
       "Natural flare lashes that add subtle volume and definition while maintaining a soft appearance.",
     keywords: ["lashes", "eyelashes", "natural lashes", "flare"],
   },
+  // {
+  //   slug: "volume-full-flare-lashes",
+  //   name: "Volume Full Flare Lashes",
+  //   category: "Lashes",
+  //   price: "$50",
+  //   duration: "",
+  //   description:
+  //     "Fuller flare lashes designed to create a more dramatic and voluminous eye look.",
+  //   keywords: ["lashes", "volume lashes", "full flare", "eyelashes"],
+  // },
   {
     slug: "volume-full-flare-lashes",
     name: "Volume Full Flare Lashes",
@@ -273,6 +293,16 @@ export const services: Service[] = [
     description:
       "Lash refill service to refresh and maintain your existing lash look.",
     keywords: ["lashes", "lash refill", "eyelashes"],
+  },
+  {
+    slug: "strip-lashes",
+    name: "Strip Lashes",
+    category: "Lashes",
+    price: "$15",
+    duration: "",
+    description:
+      "Strip lash application for an enhanced eye look with added definition and volume.",
+    keywords: ["lashes", "strip lashes", "eyelashes"],
   },
   {
     slug: "lash-tint",
@@ -333,6 +363,18 @@ export const services: Service[] = [
     description:
       "Brow lamination combined with tinting for fuller-looking and beautifully defined brows.",
     keywords: ["brows", "eyebrows", "lamination", "tint"],
+  },
+
+  // Combo
+  {
+    slug: "eyebrow-tint-lashes",
+    name: "Eyebrow + Tint + Lashes",
+    category: "Combo",
+    price: "$60",
+    duration: "",
+    description:
+      "A combined eyebrow, tint and lash service for a polished and enhanced look.",
+    keywords: ["combo", "eyebrow", "tint", "lashes"],
   },
 
   // Facial
