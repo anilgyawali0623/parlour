@@ -1,23 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { FaTiktok , FaFacebook, FaInstagram} from 'react-icons/fa6';
 
-function InstagramIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function FacebookIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-      <path d="M15 8.5h2V5h-2c-2.2 0-4 1.8-4 4v2H9v3.5h2V21h3.5v-6.5H17l.5-3.5h-3V9c0-.55.45-1 1-1z" />
-    </svg>
-  );
-}
 
 export default function Footer() {
   return (
@@ -31,18 +15,29 @@ export default function Footer() {
             </p>
             <div className="mt-5 flex gap-3">
               <a
-                href="#"
+                href="https://www.instagram.com/nevathreadingbeauty"
                 aria-label="Instagram"
+                target="_blank"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--paper)]/25 transition hover:border-[var(--gold-soft)] hover:text-[var(--gold-soft)]"
               >
-                <InstagramIcon />
+                <FaInstagram />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/share/19NXfXoF9a/?mibextid=wwXIfr"
                 aria-label="Facebook"
+                target="_blank"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--paper)]/25 transition hover:border-[var(--gold-soft)] hover:text-[var(--gold-soft)]"
               >
-                <FacebookIcon />
+                <FaFacebook />
+              </a>
+              
+              <a
+                href="https://www.tiktok.com/@neva.threading.be?_r=1&_t=ZT-9AC7gs3WKYI"
+                aria-label="TikTok"
+                target="_blank"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--paper)]/25 transition hover:border-[var(--gold-soft)] hover:text-[var(--gold-soft)]"
+              >
+                <FaTiktok />
               </a>
             </div>
           </div>

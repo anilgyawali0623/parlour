@@ -22,7 +22,7 @@ const process = [
   {
     n: "02",
     title: "A ten-minute consult",
-    body: "Every visit opens with a short conversation before a single tool touches your hair or skin.",
+    body: "Every visit opens with a short conversation before a single tool touches your skin.",
   },
   {
     n: "03",
@@ -45,7 +45,7 @@ export default function Home() {
           <div>
            
             <h1 className="mt-1 font-display text-5xl leading-[1.05] sm:text-6xl">
-              Best Threading & Beauty Salon in beford,TX <br />
+              Best Threading & Beauty Salon in bedford,TX <br />
               <br />
               
             </h1>
@@ -148,30 +148,12 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIAL STRIP */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-8 sm:grid-cols-3">
-          {[
-            { quote: "The only salon where I've never once felt rushed out of the chair.", name: "R. Okonkwo" },
-            { quote: "My colourist actually remembers what we mixed last time.", name: "S. Duarte" },
-            { quote: "Booked my bridal trial and day-of here — worth every minute of the trial.", name: "L. Byrne" },
-          ].map((t) => (
-            <figure key={t.name} className="ticket rounded-sm p-6">
-              <blockquote className="font-display text-lg italic leading-snug text-[var(--ink)]">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="perforation mt-4 pt-3 font-mono text-xs text-[var(--charcoal-60)]">
-                {t.name}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
+      
       {/* CTA BANNER */}
       <section className="bg-[var(--rose)]">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-14 sm:flex-row sm:items-center">
           <h2 className="max-w-md font-display text-3xl leading-tight text-[var(--ink)]">
-            Six chairs. One client each. Book yours.
+            Your beauty time starts here.
           </h2>
           <Link
             href="/contact"

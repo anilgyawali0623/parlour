@@ -47,39 +47,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--ink)] text-[var(--paper)]">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <SectionHeading eyebrow="Behind the chairs" title="The people" light />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((t) => (
-              <div
-                key={t.name}
-                className="ticket ticket-dark rounded-sm p-5"
-                style={{ ["--paper-band" as unknown as string]: "var(--ink)" }}
-              >
-                <p className="font-display text-lg">{t.name}</p>
-                <p className="perforation mt-2 pt-2 eyebrow text-[var(--gold-soft)]">{t.role}</p>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--paper)]/70">{t.note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-8 text-center sm:grid-cols-3">
-          {[
-            { stat: "6", label: "chairs, never more" },
-            { stat: "1", label: "client per stylist, always" },
-            { stat: "11", label: "years on Marlowe Lane" },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="font-display text-5xl text-[var(--rose-deep)]">{s.stat}</p>
-              <p className="mt-2 eyebrow text-[var(--charcoal-60)]">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+    
     </>
   );
 }
