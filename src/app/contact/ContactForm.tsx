@@ -76,8 +76,8 @@ function ServiceSearch({
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={`flex min-h-[46px] w-full items-center justify-between rounded-sm border bg-[var(--paper)] px-4 py-3 text-left text-sm transition ${error
-            ? "border-red-500"
-            : "border-[var(--charcoal)]/15 hover:border-[var(--gold)]"
+          ? "border-red-500"
+          : "border-[var(--charcoal)]/15 hover:border-[var(--gold)]"
           }`}
       >
         <div className="flex flex-wrap gap-2">
@@ -151,8 +151,8 @@ function ServiceSearch({
                     type="button"
                     onClick={() => toggleService(s.name)}
                     className={`flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm transition hover:bg-[var(--paper-deep)] ${isSelected
-                        ? "bg-[var(--paper-deep)]"
-                        : ""
+                      ? "bg-[var(--paper-deep)]"
+                      : ""
                       }`}
                   >
                     <span>
@@ -237,7 +237,7 @@ export default function ContactForm() {
       setLoadingSlots(true);
 
       const res = await fetch(
-        `https://parlour-nine-sigma.vercel.app/api/booking/available-slot?date=${encodeURIComponent(date)}`
+        `/api/booking/available-slot?date=${encodeURIComponent(date)}`
       );
 
       const data = await res.json();
@@ -297,7 +297,7 @@ export default function ContactForm() {
     console.log("Submitting booking:", values);
 
     try {
-      const res = await fetch("https://parlour-nine-sigma.vercel.app/api/booking", {
+      const res = await fetch("/api/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -422,25 +422,25 @@ export default function ContactForm() {
       </div>
 
 
-<div>
-{timeSlots.length > 0 && (
-  <div className="mt-2">
-    <p className="text-sm text-[var(--charcoal-60)]">
-      Unavailable time slots for {values.date}:
-    </p>
-    <ul className="mt-1.5 space-y-1 text-sm text-[var(--charcoal-60)]">
-      {timeSlots.map((slot, index) => (
-        <li key={index}>
-          {slot.from} - {slot.to}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-</div>  
+      <div>
+        {timeSlots.length > 0 && (
+          <div className="mt-2">
+            <p className="text-sm text-[var(--charcoal-60)]">
+              Unavailable time slots for {values.date}:
+            </p>
+            <ul className="mt-1.5 space-y-1 text-sm text-[var(--charcoal-60)]">
+              {timeSlots.map((slot, index) => (
+                <li key={index}>
+                  {slot.from} - {slot.to}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
 
 
-  
+
 
 
       <Field label="Preferred time">
