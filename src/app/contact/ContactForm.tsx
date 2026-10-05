@@ -1,17 +1,18 @@
 "use client";
 
-import { useState,useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Check } from "lucide-react";
 import { services } from "@/data/services";
 import { Search, ChevronDown, X } from "lucide-react";
 type Status = "idle" | "submitting" | "success";
+
 function ServiceSearch({
   value,
   onChange,
   error,
 }: {
-  value: string;
-  onChange: (value: string) => void;
+  value: string[];
+  onChange: (value: string[]) => void;
   error?: boolean;
 }) {
   const [open, setOpen] = useState(false);
@@ -19,7 +20,9 @@ function ServiceSearch({
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const selectedService = services.find((s) => s.name === value);
+  const selectedServices = services.filter((s) =>
+    value.includes(s.name)
+  );
 
   const filteredServices = services.filter((s) => {
     const q = query.trim().toLowerCase();
@@ -49,51 +52,60 @@ function ServiceSearch({
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
     };
   }, []);
 
-  function selectService(serviceName: string) {
-    onChange(serviceName);
-    setQuery("");
-    setOpen(false);
+  function toggleService(serviceName: string) {
+    if (value.includes(serviceName)) {
+      onChange(
+        value.filter((service) => service !== serviceName)
+      );
+    } else {
+      onChange([...value, serviceName]);
+    }
   }
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Selected service / search trigger */}
+      {/* Selected services / search trigger */}
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex w-full items-center justify-between rounded-sm border bg-[var(--paper)] px-4 py-3 text-left text-sm transition ${
-          error
+        className={`flex min-h-[46px] w-full items-center justify-between rounded-sm border bg-[var(--paper)] px-4 py-3 text-left text-sm transition ${error
             ? "border-red-500"
             : "border-[var(--charcoal)]/15 hover:border-[var(--gold)]"
-        }`}
+          }`}
       >
-        <span
-          className={
-            selectedService
-              ? "text-[var(--ink)]"
-              : "text-[var(--charcoal-60)]"
-          }
-        >
-          {selectedService
-            ? `${selectedService.name} — ${selectedService.price}`
-            : "Choose a service…"}
-        </span>
+        <div className="flex flex-wrap gap-2">
+          {selectedServices.length > 0 ? (
+            selectedServices.map((service) => (
+              <span
+                key={service.slug}
+                className="rounded-full bg-[var(--paper-deep)] px-3 py-1 text-xs text-[var(--ink)]"
+              >
+                {service.name}
+              </span>
+            ))
+          ) : (
+            <span className="text-[var(--charcoal-60)]">
+              Choose services…
+            </span>
+          )}
+        </div>
 
         <ChevronDown
           size={17}
-          className={`shrink-0 transition-transform ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`ml-2 shrink-0 transition-transform ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
 
       {open && (
         <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-sm border border-[var(--charcoal)]/12 bg-[var(--paper)] shadow-xl">
-          
           {/* Search */}
           <div className="border-b border-[var(--charcoal)]/10 p-3">
             <div className="flex items-center gap-2 border-b border-[var(--ink)]/30 pb-2">
@@ -130,32 +142,44 @@ function ServiceSearch({
                 No services found.
               </p>
             ) : (
-              filteredServices.map((s) => (
-                <button
-                  key={s.slug}
-                  type="button"
-                  onClick={() => selectService(s.name)}
-                  className={`flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm transition hover:bg-[var(--paper-deep)] ${
-                    value === s.name
-                      ? "bg-[var(--paper-deep)]"
-                      : ""
-                  }`}
-                >
-                  <span>
-                    <span className="block font-medium text-[var(--ink)]">
-                      {s.name}
+              filteredServices.map((s) => {
+                const isSelected = value.includes(s.name);
+
+                return (
+                  <button
+                    key={s.slug}
+                    type="button"
+                    onClick={() => toggleService(s.name)}
+                    className={`flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm transition hover:bg-[var(--paper-deep)] ${isSelected
+                        ? "bg-[var(--paper-deep)]"
+                        : ""
+                      }`}
+                  >
+                    <span>
+                      <span className="block font-medium text-[var(--ink)]">
+                        {s.name}
+                      </span>
+
+                      <span className="eyebrow text-[var(--charcoal-60)]">
+                        {s.category}
+                      </span>
                     </span>
 
-                    <span className="eyebrow text-[var(--charcoal-60)]">
-                      {s.category}
-                    </span>
-                  </span>
+                    <div className="flex items-center gap-3">
+                      <span className="shrink-0 font-mono text-xs text-[var(--gold)]">
+                        {s.price}
+                      </span>
 
-                  <span className="shrink-0 font-mono text-xs text-[var(--gold)]">
-                    {s.price}
-                  </span>
-                </button>
-              ))
+                      {isSelected && (
+                        <Check
+                          size={16}
+                          className="text-[var(--gold)]"
+                        />
+                      )}
+                    </div>
+                  </button>
+                );
+              })
             )}
           </div>
         </div>
@@ -163,6 +187,8 @@ function ServiceSearch({
     </div>
   );
 }
+
+
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -170,71 +196,144 @@ export default function ContactForm() {
     name: "",
     email: "",
     phone: "",
-    service: "",
+    service: [] as string[],
     date: "",
+    requestedTime: "",
     message: "",
   });
- console.log("Current form values:", values);
-  function update(field: keyof typeof values, value: string) {
-    setValues((v) => ({ ...v, [field]: value }));
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  console.log("Current form values:", values);
+  const [timeSlots, setTimeSlots] = useState<
+    { to: string; from: string }[]
+  >([]);
+  console.log("Current time slots:", timeSlots);
+
+  const [loadingSlots, setLoadingSlots] = useState(false);
+  console.log("Current form values:", values);
+  function update(
+    field: keyof typeof values,
+    value: string | string[]
+  ) {
+    setValues((v) => ({
+      ...v,
+      [field]: value,
+    }));
+  }
+  useEffect(() => {
+    if (!values.date) {
+      setTimeSlots([]);
+      return;
+    }
+
+    fetchAvailableSlots(values.date);
+  }, [values.date]);
+  async function fetchAvailableSlots(date: string) {
+    if (!date) {
+      setTimeSlots([]);
+      return;
+    }
+
+    try {
+      setLoadingSlots(true);
+
+      const res = await fetch(
+        `/api/booking/available-slot?date=${encodeURIComponent(date)}`
+      );
+
+      const data = await res.json();
+      console.log("Available slots API response:", data);
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to fetch unavailable slots");
+      }
+
+      setTimeSlots(data.unavailableSlots || []);
+    } catch (error) {
+      console.error("Failed to fetch unavailable slots:", error);
+      setTimeSlots([]);
+    } finally {
+      setLoadingSlots(false);
+    }
   }
 
   function validate() {
     const next: Record<string, string> = {};
-    if (!values.name.trim()) next.name = "Enter your name.";
+
+    if (!values.name.trim()) {
+      next.name = "Enter your name.";
+    }
+
     if (!values.email.trim()) {
       next.email = "Enter your email.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
       next.email = "Enter a valid email.";
     }
-    if (!values.service) next.service = "Choose a service.";
+
+    if (!values.phone.trim()) {
+      next.phone = "Enter your phone number.";
+    }
+
+    if (!values.date) {
+      next.date = "Choose a date.";
+    }
+    if (values.service.length === 0) {
+      next.service = "Choose at least one service.";
+    }
+
+    if (!values.requestedTime) {
+      next.requestedTime = "Choose an available time.";
+    }
+
     setErrors(next);
+
     return Object.keys(next).length === 0;
   }
-
   async function handleSubmit(e: React.FormEvent) {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!validate()) return;
+    if (!validate()) return;
 
-  setStatus("submitting");
+    setStatus("submitting");
 
-  console.log("Submitting form with values:", values);
+    console.log("Submitting booking:", values);
 
-  try {
-    const res = await fetch(
-      "https://parlour-nine-sigma.vercel.app/api/contact",
-      {
+    try {
+      const res = await fetch("/api/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
+      });
+
+      const data = await res.json();
+      console.log("API status:", res.status);
+      console.log("API response:", data);
+      console.log("API status:", res.status);
+      console.log("API response:", data);
+      console.log("API message:", data.message);
+      if (!res.ok) {
+        setErrorMessage(data.message || "Booking failed");
+
+        if (res.status === 409) {
+          await fetchAvailableSlots(values.date);
+        }
+
+        setStatus("idle");
+        return;
       }
-    );
 
-    const responseText = await res.text();
+      setStatus("success");
+    } catch (err) {
+      console.error("Booking error:", err);
 
-    console.log("API status:", res.status);
-    console.log("API response:", responseText);
+      setStatus("idle");
 
-    if (!res.ok) {
-      throw new Error(
-        `Request failed: ${res.status} - ${responseText}`
-      );
+      setErrors({
+        form:
+          "Something went wrong. Please try again or call us directly.",
+      });
     }
-
-    setStatus("success");
-  } catch (err) {
-    console.error("Contact form error:", err);
-
-    setStatus("idle");
-
-    setErrors({
-      form: "Something went wrong sending your request. Please try again or call us directly.",
-    });
   }
-}
 
   if (status === "success") {
     return (
@@ -256,8 +355,9 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => {
-            setValues({ name: "", email: "", phone: "", service: "", date: "", message: "" });
+            setValues({ name: "", email: "", phone: "", service: [], date: "", message: "", requestedTime: "" });
             setStatus("idle");
+            setTimeSlots([]);
           }}
           className="mt-6 font-mono text-xs uppercase tracking-wider text-[var(--rose-deep)] underline underline-offset-4"
         >
@@ -300,23 +400,68 @@ export default function ContactForm() {
             placeholder="(555) 000-0000"
           />
         </Field>
-        <Field label="Preferred date (optional)">
+        <Field label="Preferred date">
           <input
             type="date"
             value={values.date}
-            onChange={(e) => update("date", e.target.value)}
-            className={inputClass(false)}
+            onChange={(e) => {
+              const selectedDate = e.target.value;
+
+              update("date", selectedDate);
+
+              // Clear previously selected time
+              update("requestedTime", "");
+
+              // Get slots for new date
+              fetchAvailableSlots(selectedDate);
+            }}
+            className={inputClass(!!errors.date)}
           />
         </Field>
+
       </div>
 
-      <Field label="Service" error={errors.service}>
-  <ServiceSearch
-    value={values.service}
-    onChange={(value) => update("service", value)}
-    error={!!errors.service}
-  />
-</Field>
+
+<div>
+{timeSlots.length > 0 && (
+  <div className="mt-2">
+    <p className="text-sm text-[var(--charcoal-60)]">
+      Unavailable time slots for {values.date}:
+    </p>
+    <ul className="mt-1.5 space-y-1 text-sm text-[var(--charcoal-60)]">
+      {timeSlots.map((slot, index) => (
+        <li key={index}>
+          {slot.from} - {slot.to}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+</div>  
+
+
+  
+
+
+      <Field label="Preferred time">
+        <input
+          type="time"
+          value={values.requestedTime}
+          onChange={(e) => {
+            const selectedTime = e.target.value;
+            update("requestedTime", selectedTime);
+          }}
+          className={inputClass(!!errors.requestedTime)}
+        />
+      </Field>
+
+      <Field label="Services" error={errors.service}>
+        <ServiceSearch
+          value={values.service}
+          onChange={(value) => update("service", value)}
+          error={!!errors.service}
+        />
+      </Field>
 
       <Field label="Anything we should know? (optional)">
         <textarea
@@ -333,13 +478,18 @@ export default function ContactForm() {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-[var(--ink)] px-6 py-3.5 font-mono text-xs uppercase tracking-wider text-[var(--paper)] transition hover:bg-[var(--rose-deep)] disabled:opacity-60 sm:w-auto"
       >
+
         {status === "submitting" ? "Sending…" : "Request appointment"}
-        {errors.form && (
-          <p className="text-sm text-[var(--rose-deep)]">{errors.form}</p>
-        )}
+        {/* {errors && (
+          <p className="text-sm text-[var(--rose-deep)]">{errorMessage}</p>
+        )} */}
 
       </button>
-
+      {errorMessage && (
+        <div className="rounded-sm border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {errorMessage}
+        </div>
+      )}
     </form>
   );
 }
@@ -357,7 +507,7 @@ function Field({
     <label className="block">
       <span className="eyebrow text-[var(--charcoal-60)]">{label}</span>
       <div className="mt-2">{children}</div>
-      {error && <span className="mt-1.5 block text-xs text-[var(--rose-deep)]">{error}</span>}
+      {/* {errorMessage && <span className="mt-1.5 block text-xs text-[var(--rose-deep)]">{errorMessage}</span>} */}
     </label>
   );
 }
