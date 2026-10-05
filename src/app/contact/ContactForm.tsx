@@ -237,7 +237,7 @@ export default function ContactForm() {
       setLoadingSlots(true);
 
       const res = await fetch(
-        `/api/booking/available-slot?date=${encodeURIComponent(date)}`
+        `https://parlour-nine-sigma.vercel.app/api/booking/available-slot?date=${encodeURIComponent(date)}`
       );
 
       const data = await res.json();
@@ -297,7 +297,7 @@ export default function ContactForm() {
     console.log("Submitting booking:", values);
 
     try {
-      const res = await fetch("/api/booking", {
+      const res = await fetch("https://parlour-nine-sigma.vercel.app/api/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
